@@ -1,0 +1,30 @@
+version: '3.0'
+services:
+  consul:
+    image: consul
+    container_name: consul
+    ports:
+      - "8500:8500"
+      - "8300:8300"
+      - "8301:8301"
+      - "8302:8302"
+      - "8600:8600/udp"
+    command: [ "consul","agent","-dev","-client","0.0.0.0" ]
+  app-mysql:
+    image: mysql:latest
+    container_name: app-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - "3307:3306"
+    volumes:
+      - /home/zhangshuai/.mysql8/data:/var/lib/mysql
+      - /home/zhangshuai/.mysql8/conf:/etc/mysql
+      - /home/zhangshuai/.mysql8/logs:/var/log/mysql
+      - /home/zhangshuai/.mysql8/mysql-files:/var/lib/mysql-files
+  jaeger:
+    image: jaegertracing/all-in-one
+    container_name: jaeger
+    ports:
+      - "14268:14268"
+      - "16686:16686"

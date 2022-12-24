@@ -28,12 +28,12 @@ func Init() {
 
 func TestCreateUser(t *testing.T) {
 
-	defer conn.Close()
 	rsp, err := userClient.CreateUser(context.Background(), &v1.CreateUserRequest{
 		Mobile:   fmt.Sprintf("138888874%d", 1),
 		Password: "admin123",
 		NickName: fmt.Sprintf("YWWW%d", 1),
 	})
+
 	if err != nil {
 		panic("grpc 创建用户失败" + err.Error())
 	}

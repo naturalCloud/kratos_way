@@ -14,8 +14,12 @@ data:
     dial_timeout: 1s
     read_timeout: 0.2s
     write_timeout: 0.2s
-    db  : 0
-    password :
+    db: 0
+    password:
 
 trace:
   endpoint: http://127.0.0.1:14268/api/traces
+
+service:
+  user:
+    endpoint: discovery:///shop.user.service
