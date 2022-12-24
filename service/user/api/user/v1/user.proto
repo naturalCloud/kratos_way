@@ -8,7 +8,7 @@ option java_package = "api.user.v1";
 
 service User {
 	rpc CreateUser (CreateUserRequest) returns (CreateUserReply);
-//	rpc UpdateUser (UpdateUserRequest) returns (UpdateUserReply);
+	rpc UpdateUser (UpdateUserRequest) returns (UpdateUserReply);
 //	rpc DeleteUser (DeleteUserRequest) returns (DeleteUserReply);
 	rpc GetUser (GetUserRequest) returns (GetUserReply);
 //	rpc ListUser (ListUserRequest) returns (ListUserReply);
@@ -22,15 +22,20 @@ message CreateUserRequest {
 message CreateUserReply {
 	int64  id = 1;
 	string mobile = 2;
-	string password = 3; 
+	string password = 3;
 	string nickName = 4;
 	string birthday = 5;
 	string gender = 6;
 	int32 role = 7;
 }
 
-//message UpdateUserRequest {}
-//message UpdateUserReply {}
+message UpdateUserRequest {
+	int64  id = 1;
+	string nickName = 2;
+	string birthday = 3;
+	string gender = 4;
+}
+
 //
 //message DeleteUserRequest {}
 //message DeleteUserReply {}

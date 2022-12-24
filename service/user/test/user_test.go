@@ -19,7 +19,7 @@ func init() {
 // Init 初始化 grpc 链接 注意这里链接的 端口
 func Init() {
 	var err error
-	conn, err = grpc.Dial("127.0.0.1:9000", grpc.WithInsecure())
+	conn, err = grpc.Dial("127.0.0.1:9001", grpc.WithInsecure())
 	if err != nil {
 		panic("grpc link err" + err.Error())
 	}
@@ -30,7 +30,7 @@ func TestCreateUser(t *testing.T) {
 
 	defer conn.Close()
 	rsp, err := userClient.CreateUser(context.Background(), &v1.CreateUserRequest{
-		Mobile:   fmt.Sprintf("1388888888%d", 1),
+		Mobile:   fmt.Sprintf("138888874%d", 1),
 		Password: "admin123",
 		NickName: fmt.Sprintf("YWWW%d", 1),
 	})
